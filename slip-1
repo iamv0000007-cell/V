@@ -1,0 +1,46 @@
+Slip-01 
+Q.1 Write a C program to search an element by using binary search method. 
+ 
+#include <stdio.h>  
+int binarySearch(int arr[], int size, int target) { 
+    int Begin = 0, End = size - 1,mid; 
+    while (Begin <= End)  
+    { 
+         mid = (Begin + End) / 2; 
+          
+         printf("%d",mid); 
+        if (arr[mid] == target) 
+            return mid; 
+ 
+        else if (arr[mid] < target) 
+            Begin = mid + 1; 
+ 
+        else 
+            End = mid - 1; 
+    } 
+    return -1; 
+} 
+ 
+int main() { 
+    int arr[100], n, target; 
+ 
+    printf("Enter number of elements (sorted): "); 
+    scanf("%d", &n); 
+ 
+    printf("Enter %d sorted elements:\n", n); 
+    for (int i = 0; i < n; i++) 
+        scanf("%d", &arr[i]); 
+ 
+    printf("Enter element to search: "); 
+    scanf("%d", &target); 
+ 
+    int result = binarySearch(arr, n, target); 
+ 
+    if (result != -1) 
+        printf("Element found at index %d\n", result); 
+    else 
+        printf("Element not found in the array.\n"); 
+ 
+    return 0; 
+} 
+ 
